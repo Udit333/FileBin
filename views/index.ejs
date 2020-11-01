@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+    <div class="jumbotron">
+        <h1 class="display-6">FileBin | Sharing made easy</h1>
+        <% if(locals.error){ %>
+        <h4><%= locals.error %></h4>
+        <% } else if(locals.file){%>
+        <h8>Share this link:- </h8>
+        <p><a href="<%= locals.file %>"><%= locals.file %></a></p>
+        <% } %>
+        <hr class="my-2">
+        <div class="col-sm-8 text-left">
+            <form action="/api/files" method="POST" enctype="multipart/form-data">
+                <div class="card">
+                    <input type="file" name="myfile" class="custom-file-input" id="myfile">
+                    <label class="custom-file-label" for="myfile">Choose file</label>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">SUBMIT</button>
+            </form>
+        </div>
+        
+    </div> 
+
+<%- include('partials/footer.ejs') %>

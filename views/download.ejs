@@ -1,0 +1,17 @@
+<%- include('partials/header.ejs') %>
+
+    <div class="jumbotron">
+        <% if(locals.error){ %>
+        <h4><%= locals.error %></h4>
+        <% } else { %>
+        <h2>Your file is ready to download</h2>
+        <div class="form-signin">
+            <h4><%= fileName %></h4>
+            <small><%= parseInt(fileSize/1000) %> KB</small>
+        </div>
+        <div class="btn btn-info">
+            <a style="color: black;" href="<%= dLink %>">Download file</a>
+        </div>
+        <% } %>
+    </div>
+<%- include('partials/footer.ejs') %>
